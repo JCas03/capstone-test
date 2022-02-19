@@ -6,7 +6,7 @@ trigger:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 pool:
-
+ name:'Default'
 steps:
 - task: SonarQubePrepare@5
   inputs:
@@ -22,7 +22,7 @@ steps:
     versionSpec: '11'
     jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
-    vmImage: ubuntu-latest
+  vmImage: ubuntu-latest
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
