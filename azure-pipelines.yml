@@ -12,8 +12,7 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-trigger:
-- main
+
 
 pool:
 - task: JavaToolInstaller@0
@@ -38,3 +37,6 @@ steps:
 - task: SonarQubePublish@5
   inputs:
     pollingTimeoutSec: '300'
+    
+  trigger:
+- main
