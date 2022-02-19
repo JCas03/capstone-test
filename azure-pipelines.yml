@@ -22,7 +22,7 @@ steps:
     versionSpec: '11'
     jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
-  vmImage: ubuntu-latest
+  
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -37,4 +37,3 @@ steps:
 - task: SonarQubePublish@5
   inputs:
     pollingTimeoutSec: '300'
-    
