@@ -6,7 +6,9 @@ trigger:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 pool:
-task: SonarQubePrepare@5
+
+steps:
+- task: SonarQubePrepare@5
   inputs:
     SonarQube: 'sonarqube'
     scannerMode: 'Other'
@@ -15,15 +17,12 @@ task: SonarQubePrepare@5
       # Put one key=value per line, example:
       # sonar.exclusions=**/*.bin
       sonar.projectKey=cong-capstone-azure_cong-capstone-azure
-
 - task: JavaToolInstaller@0
   inputs:
     versionSpec: '11'
     jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
   vmImage: ubuntu-latest
-
-steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
