@@ -6,7 +6,7 @@ trigger:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 pool:
- name:'Default'
+
 steps:
 - task: SonarQubePrepare@5
   inputs:
