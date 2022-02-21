@@ -8,17 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ppmtool" />
-        <module name="cong-capstone-azure" />
+        <module name="capstone-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cong-capstone-azure" target="1.8" />
+      <module name="capstone-test" target="11" />
       <module name="ppmtool" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="cong-capstone-azure" options="-parameters" />
+      <module name="capstone-test" options="-parameters" />
       <module name="ppmtool" options="-parameters" />
     </option>
   </component>
