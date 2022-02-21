@@ -38,8 +38,11 @@ steps:
     sonarQubeRunAnalysis: true
 
 - task: CopyFiles@2
+  displayName: 'Copy Files to artifact staging directory'
   inputs:
-    targetFolder: '$(Build.ArtifactStagingDirectory)' 
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    Contents: '**/target/*.?(war|jar)'
+    TargetFolder: $(Build.ArtifactStagingDirectory)
     
 - task: PublishBuildArtifacts@1
   inputs:
