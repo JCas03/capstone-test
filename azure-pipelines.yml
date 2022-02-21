@@ -36,4 +36,7 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
     sonarQubeRunAnalysis: true
+
+- task: PublishBuildArtifacts@1
+
 # - task: SonarQubeAnalyze@5
