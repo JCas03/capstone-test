@@ -11,9 +11,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Date;
 
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
+//@Configuration
+//@EnableAutoConfiguration
+//@ComponentScan
+@SpringBootApplication
+
 public class PpmtoolApplication {
     @Bean
     BCryptPasswordEncoder bCryptPasswordEncoder(){
