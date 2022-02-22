@@ -15,15 +15,15 @@ steps:
     versionSpec: '11'
     jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
-# - task: SonarQubePrepare@5
-#   inputs:
-#     SonarQube: 'sonarqube'
-#     scannerMode: 'Other'
-#     extraProperties: |
-#       # Additional properties that will be passed to the scanner,
-#       # Put one key=value per line, example:
-#       # sonar.exclusions=**/*.bin
-#       sonar.projectKey=cong-capstone-azure_cong-capstone-azure
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sonarqube'
+    scannerMode: 'Other'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner,
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.projectKey=congnguyenhcl_capstone-test
       
 - task: Maven@3
   inputs:
@@ -35,4 +35,4 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-    # sonarQubeRunAnalysis: true
+    sonarQubeRunAnalysis: true
