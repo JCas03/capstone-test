@@ -39,7 +39,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v2.3.1
         with:
-          distribution: 'liberica'
+          distribution: 'temurin'
           java-version: ${{ env.JAVA_VERSION }}
           cache: 'maven'
 
