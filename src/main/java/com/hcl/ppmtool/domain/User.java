@@ -146,4 +146,11 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public User(Long id, String username, String fullName, String password) {
+        this.id = id;
+        this.username = username;
+        this.fullName = fullName;
+        this.password = password;
+    }
 }
