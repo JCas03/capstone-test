@@ -1,8 +1,8 @@
-name: Build
+name: sonarqube_scanner
 on:
   push:
     branches:
-      - master # or the name of your main branch
+      - main
 
 jobs:
   build:
