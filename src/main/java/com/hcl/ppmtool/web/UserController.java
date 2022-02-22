@@ -63,7 +63,7 @@ public class UserController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = TOKEN_PREFIX +  tokenProvider.generateToken(authentication);
 
-        log.warn("New login attempted..");
+        log.info("New login attempted..");
         return ResponseEntity.ok(new JWTLoginSucessResponse(true, jwt));
     }
 
@@ -77,6 +77,7 @@ public class UserController {
 
         User newUser = userService.saveUser(user);
 
+        log.info("New account registration attempted..");
         return  new ResponseEntity<User>(newUser, HttpStatus.CREATED);
     }
 }
