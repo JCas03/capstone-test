@@ -29,7 +29,7 @@ import static com.hcl.ppmtool.security.SecurityConstants.TOKEN_PREFIX;
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-	//Logger log = Logger.getLogger(PpmtoolApplication.class.getName());
+	// Logger log = Logger.getLogger(PpmtoolApplication.class.getName());
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
