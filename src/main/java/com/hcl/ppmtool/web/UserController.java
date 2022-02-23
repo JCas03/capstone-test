@@ -26,10 +26,12 @@ import javax.validation.Valid;
 
 import static com.hcl.ppmtool.security.SecurityConstants.TOKEN_PREFIX;
 
+import org.apache.log4j.Logger;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-	// Logger log = Logger.getLogger(PpmtoolApplication.class.getName());
+    Logger log = Logger.getLogger(PpmtoolApplication.class.getName());
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
@@ -46,11 +48,11 @@ public class UserController {
     private AuthenticationManager authenticationManager;
 
 
-
     @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult result){
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
-        if(errorMap != null) return errorMap;
+        if (errorMap != null)
+            return errorMap;
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -59,24 +61,26 @@ public class UserController {
                 )
         );
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = TOKEN_PREFIX +  tokenProvider.generateToken(authentication);
+        SecurityContextHolder.getContext()
+                             .setAuthentication(authentication);
+        String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication);
 
-        //log.info("New login attempted..");
+        log.info("New login attempted..");
         return ResponseEntity.ok(new JWTLoginSucessResponse(true, jwt));
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result){
+    public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result) {
         // Validate passwords match
-        userValidator.validate(user,result);
+        userValidator.validate(user, result);
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
-        if(errorMap != null)return errorMap;
+        if (errorMap != null)
+            return errorMap;
 
         User newUser = userService.saveUser(user);
 
-        //log.info("New account registration attempted..");
-        return  new ResponseEntity<User>(newUser, HttpStatus.CREATED);
+        log.info("New account registration attempted..");
+        return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
     }
 }
