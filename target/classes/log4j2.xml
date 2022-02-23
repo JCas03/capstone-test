@@ -4,13 +4,13 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MMM-dd hh:mm:ss a } %level %c - %m %n" />
         </Console>
-        <JDBC name="capstone" tableName="APP_LOGS">
+        <JDBC name="capstone" tableName="log4j2log">
             <ConnectionFactory
                     class="com.hcl.ppmtool.logging.LogConnectionFactory" method="getConnection" />
-            <Column name="LOG_ID" pattern="%u" />
-            <Column name="ENTRY_DATE" isEventTimestamp="true" />
+            <Column name="ID" pattern="%u" />
+            <Column name="DATE" isEventTimestamp="true" />
             <Column name="LOGGER" pattern="%logger" />
-            <Column name="LOG_LEVEL" pattern="%level" />
+            <Column name="LEVEL" pattern="%level" />
             <Column name="MESSAGE" pattern="%m" />
             <Column name="EXCEPTION" pattern="%throwable " />
         </JDBC>
@@ -23,7 +23,7 @@
             <AppenderRef ref="capstone" />
         </Logger>
 
-        <Root level="trace">
+        <Root level="info">
             <AppenderRef ref="Console" />
             <AppenderRef ref="capstone" />
         </Root>
