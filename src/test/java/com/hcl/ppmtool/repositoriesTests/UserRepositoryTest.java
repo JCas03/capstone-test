@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
 @ActiveProfiles("test")
-public class UserRepositoryTest {
+class UserRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
@@ -62,7 +62,7 @@ public class UserRepositoryTest {
     @Test
     void findAllTest() {
         List<User> allCustomer = (List<User>) userRepository.findAll();
-        assertThat(allCustomer.size()).isGreaterThanOrEqualTo(1);
+        assertThat(allCustomer.size()).isPositive();
     }
 }
 

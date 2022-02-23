@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class ProjectServiceTest {
+class ProjectServiceTest {
 
 
     ProjectService projectServiceTest = Mockito.mock(ProjectService.class);
@@ -24,7 +24,7 @@ public class ProjectServiceTest {
 
 
     @Test
-    public void findAllProjectTest(){
+    public void findAllProjectTest() {
 
         long testProjId = 1;
         Project pj = new Project();
@@ -33,12 +33,12 @@ public class ProjectServiceTest {
         pj.setProjectIdentifier("MOCK1");
         pj.setDescription("Mock project 1 description");
 
-        when(projectRepositoryTest.findAll()).thenReturn(Stream.of(pj).collect(Collectors.toList()));
+        when(projectRepositoryTest.findAll()).thenReturn(Stream.of(pj)
+                                                               .collect(Collectors.toList()));
         Iterable<Project> list = projectRepositoryTest.findAll();
 
         //Assertions.assertThat(pj.getId()).isGreaterThan(0);
     }
-
 
 
 }

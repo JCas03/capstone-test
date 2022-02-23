@@ -41,6 +41,6 @@ class ProjectRepositoryTest {
     @Test
     void findAllTest() {
         List<Project> allProject = (List<Project>) projectRepository.findAll();
-        assertThat(allProject.size()).isGreaterThanOrEqualTo(1);
+        assertThat(allProject.size()).isPositive();
     }
 }

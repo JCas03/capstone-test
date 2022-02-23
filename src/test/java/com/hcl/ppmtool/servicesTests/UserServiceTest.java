@@ -26,7 +26,7 @@ class UserServiceTest {
     UserService userServiceTest;
     //Mockito.mock(UserService.class);
     @Test
-    public void findAllUserTest(){
+     void findAllUserTest(){
         long userTestId = 1;
         User testUser = new User();
         testUser.setId(userTestId);
@@ -46,7 +46,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void saveUserTest(){
+     void saveUserTest(){
 
 
         long userTestId = 1;
