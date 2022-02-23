@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
 @ActiveProfiles("test")
-public class ProjectRepositoryTest {
+class ProjectRepositoryTest {
 
     @Autowired
     private ProjectRepository projectRepository;

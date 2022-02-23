@@ -1,7 +1,6 @@
 package com.hcl.ppmtool.services;
 
 import com.hcl.ppmtool.domain.Backlog;
-import com.hcl.ppmtool.domain.Project;
 import com.hcl.ppmtool.domain.ProjectTask;
 import com.hcl.ppmtool.exceptions.ProjectNotFoundException;
 import com.hcl.ppmtool.repositories.BacklogRepository;
@@ -10,7 +9,7 @@ import com.hcl.ppmtool.repositories.ProjectTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 
 @Service
 public class ProjectTaskService {
@@ -33,7 +32,7 @@ public class ProjectTaskService {
 
 
             //PTs to be added to a specific project, project != null, BL exists
-            Backlog backlog =  projectService.findProjectByIdentifier(projectIdentifier, username).getBacklog(); //backlogRepository.findByProjectIdentifier(projectIdentifier);
+            Backlog backlog =  projectService.findProjectByIdentifier(projectIdentifier, username).getBacklog();
             //set the bl to pt
             System.out.println(backlog);
             projectTask.setBacklog(backlog);
