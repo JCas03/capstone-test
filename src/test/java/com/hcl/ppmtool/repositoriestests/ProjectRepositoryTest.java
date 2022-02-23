@@ -1,4 +1,4 @@
-package com.hcl.ppmtool.repositoriesTests;
+package com.hcl.ppmtool.repositoriestests;
 
 import com.hcl.ppmtool.domain.Project;
 import com.hcl.ppmtool.repositories.ProjectRepository;

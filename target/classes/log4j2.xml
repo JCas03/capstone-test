@@ -23,7 +23,7 @@
             <AppenderRef ref="capstone" />
         </Logger>
 
-        <Root level="info">
+        <Root level="warn">
             <AppenderRef ref="Console" />
             <AppenderRef ref="capstone" />
         </Root>
