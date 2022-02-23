@@ -8,7 +8,6 @@ import com.hcl.ppmtool.security.JwtTokenProvider;
 import com.hcl.ppmtool.services.MapValidationErrorService;
 import com.hcl.ppmtool.services.UserService;
 import com.hcl.ppmtool.validator.UserValidator;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

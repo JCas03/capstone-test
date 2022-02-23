@@ -1,7 +1,10 @@
 package com.hcl.ppmtool.security;
 
+import com.hcl.ppmtool.PpmtoolApplication;
 import com.hcl.ppmtool.domain.User;
 import io.jsonwebtoken.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +17,7 @@ import static com.hcl.ppmtool.security.SecurityConstants.SECRET;
 
 @Component
 public class JwtTokenProvider {
-
+    Logger log = LogManager.getLogger(PpmtoolApplication.class);
     //Generate the token
 
     public String generateToken(Authentication authentication){
@@ -45,15 +48,15 @@ public class JwtTokenProvider {
             Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token);
             return true;
         }catch (SignatureException ex){
-            System.out.println("Invalid JWT Signature");
+            log.info("Invalid JWT Signature");
         }catch (MalformedJwtException ex){
-            System.out.println("Invalid JWT Token");
+            log.info("Invalid JWT Token");
         }catch (ExpiredJwtException ex){
-            System.out.println("Expired JWT token");
+            log.info("Expired JWT token");
         }catch (UnsupportedJwtException ex){
-            System.out.println("Unsupported JWT token");
+            log.info("Unsupported JWT token");
         }catch (IllegalArgumentException ex){
-            System.out.println("JWT claims string is empty");
+            log.info("JWT claims string is empty");
         }
         return false;
     }

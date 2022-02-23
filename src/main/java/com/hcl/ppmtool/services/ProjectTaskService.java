@@ -1,11 +1,14 @@
 package com.hcl.ppmtool.services;
 
+import com.hcl.ppmtool.PpmtoolApplication;
 import com.hcl.ppmtool.domain.Backlog;
 import com.hcl.ppmtool.domain.ProjectTask;
 import com.hcl.ppmtool.exceptions.ProjectNotFoundException;
 import com.hcl.ppmtool.repositories.BacklogRepository;
 import com.hcl.ppmtool.repositories.ProjectRepository;
 import com.hcl.ppmtool.repositories.ProjectTaskRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProjectTaskService {
-
+    Logger log = LogManager.getLogger(PpmtoolApplication.class);
 
     @Autowired
     private BacklogRepository backlogRepository;
@@ -34,7 +37,7 @@ public class ProjectTaskService {
             //PTs to be added to a specific project, project != null, BL exists
             Backlog backlog =  projectService.findProjectByIdentifier(projectIdentifier, username).getBacklog();
             //set the bl to pt
-            System.out.println(backlog);
+            log.info(backlog);
             projectTask.setBacklog(backlog);
             //we want our project sequence to be like this: IDPRO-1  IDPRO-2  ...100 101
             Integer BacklogSequence = backlog.getPTSequence();
