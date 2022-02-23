@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MMM-dd hh:mm:ss a } %level %c - %m %n" />
+        </Console>
+        <JDBC name="capstone" tableName="APP_LOGS">
+            <ConnectionFactory
+                    class="com.hcl.ppmtool.logging.LogConnectionFactory" method="getConnection" />
+            <Column name="LOG_ID" pattern="%u" />
+            <Column name="ENTRY_DATE" isEventTimestamp="true" />
+            <Column name="LOGGER" pattern="%logger" />
+            <Column name="LOG_LEVEL" pattern="%level" />
+            <Column name="MESSAGE" pattern="%m" />
+            <Column name="EXCEPTION" pattern="%throwable " />
+        </JDBC>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.hcl.ppmtool" level="debug"
+                additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="capstone" />
+        </Logger>
+
+        <Root level="trace">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="capstone" />
+        </Root>
+    </Loggers>
+
+</Configuration>

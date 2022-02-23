@@ -9,6 +9,8 @@ import com.hcl.ppmtool.services.MapValidationErrorService;
 import com.hcl.ppmtool.services.UserService;
 import com.hcl.ppmtool.validator.UserValidator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +31,7 @@ import static com.hcl.ppmtool.security.SecurityConstants.TOKEN_PREFIX;
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-    //Logger log = Logger.getLogger(PpmtoolApplication.class.getName());
+    Logger log = LogManager.getLogger(PpmtoolApplication.class);
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
@@ -63,7 +65,7 @@ public class UserController {
                              .setAuthentication(authentication);
         String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication);
 
-        //log.info("New login attempted..");
+        log.info("New login attempted..");
         return ResponseEntity.ok(new JWTLoginSucessResponse(true, jwt));
     }
 
@@ -78,7 +80,7 @@ public class UserController {
 
         User newUser = userService.saveUser(user);
 
-        //log.info("New account registration attempted..");
+        log.info("New account registration attempted..");
         return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
     }
 }
