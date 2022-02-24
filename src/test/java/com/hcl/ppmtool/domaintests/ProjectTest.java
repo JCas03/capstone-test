@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
@@ -38,6 +39,6 @@ class ProjectTest {
 
     @Test
     void getIdTest() {
-        assertEquals(project.getId(), 1L);
+        assertEquals(project.getProjectIdentifier(),"12345");
     }
 }
