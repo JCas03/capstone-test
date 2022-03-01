@@ -14,8 +14,8 @@ public class PpmtoolApplication {
     BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    private static final Logger log = LogManager.getLogger(PpmtoolApplication.class);
 
+    private static final Logger log = LogManager.getLogger(PpmtoolApplication.class);
 
     public static void main(String[] args) {
 
