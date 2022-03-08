@@ -15,10 +15,10 @@ public class LogConnectionFactory {
     public static Connection getConnection() throws SQLException {
         if (dataSource == null) {
             dataSource = new BasicDataSource();
-            dataSource.setUrl("jdbc:mysql://cong-azure.mysql.database.azure.com:3306/capstone");
+            dataSource.setUrl("jdbc:mysql://jc-azure.mysql.database.azure.com:3306/demo");
             dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-            dataSource.setUsername("congcapstoneazure");
-            dataSource.setPassword("ZRIJmLYLjImPquRDLOnmr5rhpM0woTDp");
+            dataSource.setUsername("azuredemo");
+            dataSource.setPassword("!Demo1234");
         }
         return dataSource.getConnection();
     }
