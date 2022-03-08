@@ -5,4 +5,4 @@
 # Azure project deployment URL
 # https://capstone-test-app.azurewebsites.net
 
-# Test Jira integration with Github
+# Test Jira integration with github
